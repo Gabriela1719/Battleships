@@ -1,0 +1,118 @@
+.player-game{
+    color: #EEEEEE;
+    text-shadow: 10px 10px rgb(47, 47, 47);
+    font-family: 'Bangers', crusive, serif;
+    font-size: 7rem;
+    margin: 50px;
+}
+.background-image-fixed {
+    min-height: 100vh;
+    background-attachment: fixed;
+    background-image: url('../assets/pocetna.jpg');
+}
+table {
+    width: 900px;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    background: linear-gradient(black, #ffffff);
+    opacity: 0.9;
+
+}
+
+th,td {
+    padding: 15px;
+    background-color: rgb(28, 37, 45);
+    opacity: 0.8;
+    color: #ffffff;
+    position: relative;
+
+}
+th {
+    text-align: center;
+    border-bottom: black;
+}
+
+.buttons {
+    margin-top: 10%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    background-color: black;
+
+}
+
+.container-players {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.btn {
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 50px;
+    max-width: 260px;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 100%;
+}
+.btn:hover {
+    text-decoration: none;
+
+}
+.effect01 {
+    color: #FFF;
+    border: 4px solid #000;
+    box-shadow:0 0 0 1px rgba(16, 9, 9, 0.2) inset;
+    background-color: #000;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+.effect01:hover {
+    border: 4px solid #d7d0d0;
+    box-shadow:0 0 0 4px #000000 inset;
+}
+.effect01 span {
+    transition: all 0.2s ease-out;
+    z-index: 2;
+}
+.effect01:hover span{
+    letter-spacing: 0.13em;
+    color: #ffffff;
+}
+.effect01:after {
+    background: #EEEEEE;
+    border: 0 solid #000;
+    content: "";
+    height: 155px;
+    left: -75px;
+    opacity: .8;
+    position: absolute;
+    top: -50px;
+    transform: rotate(35deg);
+    width: 50px;
+    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    z-index: 1;
+}
+.effect01:hover:after {
+    background: #EEEEEE;
+    border: 20px solid #000;
+    opacity: 0;
+    left: 120%;
+    transform: rotate(40deg);
+}
+span{
+    padding: 40px;
+}
+.new-player{
+    color: white;
+    position: fixed;
+}

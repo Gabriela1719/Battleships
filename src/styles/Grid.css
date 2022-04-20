@@ -1,0 +1,109 @@
+.grid-container {
+  margin: 6em;
+}
+.grid {
+  display: grid;
+  grid-gap: 0px;
+  grid-template-columns: repeat(11, 1fr);
+  grid-template-rows: repeat(11, 1fr);
+  height: 500px;
+  width: 500px;
+}
+
+.grid-square {
+  border: 1px solid rgba(9, 9, 10, 0.3);
+  font-family: Serif;
+
+}
+
+.position {
+  margin: 5em;
+  color: #eaeaea;
+  font-family: Serif;
+}
+
+
+
+.label {
+  display: flex;
+  border: none;
+  align-self: center;
+  justify-content: center;
+  background-color: #eaeaea;
+  padding-top: 30%;
+}
+
+.player-title {
+  font-size: 48px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  color: #EEEEEE;
+  text-shadow: 10px 10px rgb(47, 47, 47);
+  font-family: 'Bangers', crusive, serif;
+}
+
+.grid-title {
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgb(205, 205, 205);
+}
+
+.placement-text {
+  margin-top: 10em;
+  background-color: rgb(51, 70, 94);
+  color: #eaeaea;
+  width: 500px;
+  height: 50px;
+
+}
+.placement-text p{
+ padding-top: 3%;
+ padding-left: 5%;
+}
+
+
+.active {
+  background-color: rgb(185, 185, 185);
+}
+
+.occupied {
+  background-color: rgb(80, 81, 82);
+}
+
+.active-occupied {
+  background-color: red;
+}
+
+.enemy-hit {
+  background-color: rgb(142, 187, 91);
+}
+
+.enemy-sunk {
+  background-color: #1C6E1C;
+}
+
+.enemy-miss {
+  background-color: gray;
+}
+
+.hit {
+  background-color: yellow;
+}
+
+.sunk {
+  background-color: #C34141;
+}
+.background{
+  background-color: #eaeaea;
+  width: 50px;
+  height: 50px;
+  border: 1px solid rgba(9, 9, 10, 0.3);
+}
+
+
+.btn-rotate {
+  margin-top: 1em;
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
