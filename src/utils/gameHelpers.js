@@ -1,3 +1,5 @@
+
+
 const dictionary = {
   0: null,
   1: "A",
@@ -62,7 +64,6 @@ const gridGenerator = () => {
 };
 
 const createPlayer = () => {
-
   return {
     shipsGrid: gridGenerator(),
     movesGrid: gridGenerator(),
@@ -73,7 +74,13 @@ const createPlayer = () => {
   }
 }
 
+const welcomeMessage = {
+  turn: "Welcome to battleship!",
+  messages: ["Players first choose the positions!"]
+}
+
 
 module.exports = {
-  createPlayer
+  createPlayer,
+  welcomeMessage
 }

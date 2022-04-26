@@ -1,29 +1,29 @@
 import React, { Component } from "react";
-
 import BattleGrid from "./BattleGrid";
 import ShipGrid from "./ShipGrid";
-
-import { createPlayer } from "../utils/gameHelpers";
-
+import { createPlayer, welcomeMessage } from "../utils/gameHelpers";
 import "../styles/Game.css";
+import GameMessages from "./GameMessages";
 
 
 export default class Game extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
 
         this.state = {
-            activePlayer: "Player1",
-            Player1: createPlayer(),
-            Player2: createPlayer(),
+            activePlayer: "player1",
+            player1: createPlayer(),
+            player2: createPlayer(),
             allShipsSet: false,
             gameStarting: false,
             winner: null,
-            gameOver: false
+            gameOver: false,
+            logs: [welcomeMessage]
         };
 
         this.updateGrids = this.updateGrids.bind(this);
         this.updateShips = this.updateShips.bind(this);
+        this.updateLog = this.updateLog.bind(this);
     }
 
     updateShips(player, updatedShips) {
@@ -32,10 +32,10 @@ export default class Game extends Component {
             updatedShips,
             player
         }
-        if (currentShip + 1 === ships.length && player === "Player2") {
+        if (currentShip + 1 === ships.length && player === "player2") {
             this.shipReducer("SET_PLAYER_TWO", payload);
             this.shipReducer("START_GAME", payload);
-        } else if (currentShip + 1 === ships.length && player === "Player1") {
+        } else if (currentShip + 1 === ships.length && player === "player1") {
             this.shipReducer("SET_PLAYER_ONE", payload);
         } else {
             this.shipReducer("SET_SHIP", payload)
@@ -46,18 +46,18 @@ export default class Game extends Component {
         const { currentShip } = this.state[player];
         if (action === "SET_PLAYER_ONE") {
             this.setState({
-                Player1: {
-                    ...this.state.Player1,
+                player1: {
+                    ...this.state.player1,
                     ships: updatedShips,
                     shipsSet: true
                 },
-                activePlayer: "Player2"
+                activePlayer: "player2"
             });
         }
         if (action === "SET_PLAYER_TWO") {
             this.setState({
-                Player2: {
-                    ...this.state.Player2,
+                player2: {
+                    ...this.state.player2,
                     ships: updatedShips,
                     shipsSet: true
                 },
@@ -68,7 +68,7 @@ export default class Game extends Component {
         if (action === "START_GAME") {
             setTimeout(() => {
                 this.setState({
-                    activePlayer: "Player1",
+                    activePlayer: "player1",
                     gameStarting: false
                 });
             }, 3000);
@@ -101,7 +101,7 @@ export default class Game extends Component {
     }
 
     gridReducer(action, { player, grid, type, opponent }) {
-        const other = player === "Player1" ? "Player2" : "Player1";
+        const other = player === "player1" ? "player2" : "player1";
         if (action === "UPDATE") {
             const updatedPlayer = {
                 ...this.state[player],
@@ -126,8 +126,16 @@ export default class Game extends Component {
         }
     }
 
+    updateLog(messages) {
+        const updatedLog = this.state.logs.slice();
+        updatedLog.unshift({ turn: `Turn ${this.state.logs.length}`, messages });
+        this.setState({
+            logs: updatedLog
+        });
+    }
+
     renderBattleGrid(player) {
-        const opponent = player === "Player1" ? "Player2" : "Player1";
+        const opponent = player === "player1" ? "player2" : "player1";
         const { activePlayer } = this.state;
         return (
             <BattleGrid
@@ -161,19 +169,20 @@ export default class Game extends Component {
 
     render() {
         return (
-                <div className="game">
-                    <div className="title-container">
-                        <p className="title">Battleship</p>
-                    </div>
-                    <div className="shipgrid-container">
-                        {this.renderBattleGrid("Player1")}
-                        {this.renderBattleGrid("Player2")}
-                    </div>
-                    <div className="shipgrid-container">
-                        {this.renderShipGrid("Player1")}
-                        {this.renderShipGrid("Player2")}
-                    </div>
+            <div className="game">
+                <div className="title-container">
+                    <p className="title">Battleship</p>
                 </div>
+                <div className="shipgrid-container">
+                    {this.renderBattleGrid("player1")}
+                    <GameMessages {...this.state} />
+                    {this.renderBattleGrid("player2")}
+                </div>
+                <div className="shipgrid-container">
+                    {this.renderShipGrid("player1")}
+                    {this.renderShipGrid("player2")}
+                </div>
+            </div>
         );
     }
 }
