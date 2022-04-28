@@ -1,0 +1,33 @@
+{
+  "players": [
+    {
+      "id": 1,
+      "username": "John",
+      "email": "johndoe@abc.com"
+    },
+    {
+      "id": 2,
+      "username": "Jane",
+      "email": "janedoe@abc.com"
+    },
+    {
+      "id": 3,
+      "username": "Alice",
+      "email": "alicedoe@abc.com"
+    },
+    {
+      "id": 4,
+      "username": "Bob",
+      "email": "bobdoe@abc.com"
+    },
+    {
+      "id": 5,
+      "username": "Gabriela",
+      "email": "gabi@gmail.com"
+    }
+  ],
+
+  "playersInGame": [
+
+  ]
+}
