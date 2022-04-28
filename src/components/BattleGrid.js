@@ -81,6 +81,8 @@ export default class BattleGrid extends Component {
                 "movesGrid",
                 updatedGame.opponent
             );
+            this.props.updateLog(updatedGame.log);
+
         }
     }
 

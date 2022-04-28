@@ -39,7 +39,6 @@ const getOpponentShipIdx = (opponent, row, col) => {
   }
   return idx;
 }
-
 const placeMove = ({ grid, row, col, player, opponent }) => {
   if (grid[row][col].status !== "empty") {
     return null
@@ -58,7 +57,7 @@ const placeMove = ({ grid, row, col, player, opponent }) => {
         position.hit = true;
       }
     })
-    if (isSunk(opponentShip)) {
+    if (isSunk(opponentShip, row, col)) {
       opponent.sunkenShips++;
       opponentShip.positions.forEach(position => {
         const { row, col } = position;

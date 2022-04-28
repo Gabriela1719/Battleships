@@ -1,0 +1,29 @@
+.game-message-container {
+    margin: 2em;
+    padding: 1em;
+    height: 250px;
+    width: 300px;
+    border-radius: 5px;
+    box-shadow: 2px 1px 1px rgb(19, 18, 18);
+    overflow-y: scroll;
+    border: 1px solid rgb(19, 18, 18);
+}
+
+.player-turn {
+    font-size: 32px;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    margin: 1em;
+    color: #EEEEEE;
+    text-shadow: 10px 10px rgb(47, 47, 47);
+    font-family: 'Bangers', crusive, serif;
+}
+.turn-block {
+    margin-top: 20px;
+    border-bottom: 1px solid rgb(19, 18, 18);
+}
+.log {
+    color: #ffffff;
+    margin-top: 10px;
+}
