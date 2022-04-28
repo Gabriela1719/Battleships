@@ -1,5 +1,3 @@
-
-
 const dictionary = {
   0: null,
   1: "A",

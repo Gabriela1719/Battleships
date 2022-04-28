@@ -52,12 +52,20 @@ export default class Game extends Component {
                     shipsSet: true
                 },
                 activePlayer: "player2"
+                Player1: {
+                    ...this.state.Player1,
+                    ships: updatedShips,
+                    shipsSet: true
+                },
+                activePlayer: "Player2"
             });
         }
         if (action === "SET_PLAYER_TWO") {
             this.setState({
                 player2: {
                     ...this.state.player2,
+                Player2: {
+                    ...this.state.Player2,
                     ships: updatedShips,
                     shipsSet: true
                 },
@@ -169,6 +177,7 @@ export default class Game extends Component {
 
     render() {
         return (
+
             <div className="game">
                 <div className="title-container">
                     <p className="title">Battleship</p>
@@ -183,6 +192,7 @@ export default class Game extends Component {
                     {this.renderShipGrid("player2")}
                 </div>
             </div>
+
         );
     }
 }

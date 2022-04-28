@@ -39,8 +39,6 @@ const getOpponentShipIdx = (opponent, row, col) => {
   }
   return idx;
 }
-
-
 const placeMove = ({ grid, row, col, player, opponent }) => {
   if (grid[row][col].status !== "empty") {
     return null

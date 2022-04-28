@@ -82,6 +82,7 @@ export default class BattleGrid extends Component {
                 updatedGame.opponent
             );
             this.props.updateLog(updatedGame.log);
+
         }
     }
 
